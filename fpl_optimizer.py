@@ -3,20 +3,11 @@ import pandas as pd
 import numpy as np
 import cvxpy as cp
 from collections import defaultdict
+import json
 
 def fetch_fpl_data():
-    url = "https://fantasy.premierleague.com/api/bootstrap-static/"
-    response = requests.get(url)
-
-    if response.status_code != 200:
-        print("FPL API failed with status:", response.status_code)
-        return None
-
-    try:
-        return response.json()
-    except Exception as e:
-        print("Failed to parse JSON:", e)
-        return None
+    with open("fpl_data.json", "r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def prepare_player_data(players):
