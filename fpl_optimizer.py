@@ -4,10 +4,15 @@ import numpy as np
 import cvxpy as cp
 from collections import defaultdict
 import json
+import pandas as pd
 
 def fetch_fpl_data():
     with open("fpl_data.json", "r", encoding="utf-8") as f:
-        return json.load(f)
+        data = json.load(f)
+    # Extract player list from the 'elements' key
+    players = data['elements']  
+    return pd.DataFrame(players)
+
 
 
 def prepare_player_data(players):
