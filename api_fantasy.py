@@ -26,6 +26,9 @@ def optimize():
 
     # Fetch and prepare data once on server start, or inside function as needed
     players = fpl_optimizer.fetch_fpl_data()
+    if players is None:
+        return jsonify({"error": "Failed to fetch FPL data"}), 500
+
     df = fpl_optimizer.prepare_player_data(players)
     df = fpl_optimizer.assign_price_brackets(df)
     df = fpl_optimizer.filter_top_players(df, top_n=10)

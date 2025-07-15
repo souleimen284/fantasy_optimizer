@@ -6,9 +6,18 @@ from collections import defaultdict
 
 def fetch_fpl_data():
     url = "https://fantasy.premierleague.com/api/bootstrap-static/"
-    data = requests.get(url).json()
-    players = pd.DataFrame(data['elements'])
-    return players
+    response = requests.get(url)
+
+    if response.status_code != 200:
+        print("FPL API failed with status:", response.status_code)
+        return None
+
+    try:
+        return response.json()
+    except Exception as e:
+        print("Failed to parse JSON:", e)
+        return None
+
 
 def prepare_player_data(players):
     df = players[['id', 'web_name', 'now_cost', 'total_points', 'element_type']].copy()
