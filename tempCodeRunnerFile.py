@@ -119,7 +119,7 @@ def complete_team(df, existing_flat):
                     bench_result[label] = bench_result.get(label, 0) + 1
                     bench_position_counts[1] += 1
                     bench_total += 1
-                elif pos_code in [2, 3, 4] and bench_position_counts[pos_code] < 2 and sum(bench_position_counts[p] for p in [2, 3, 4]) < 3:
+                elif pos_code in [2, 3, 4] and bench_position_counts[pos_code] < 2:
                     bench_result[label] = bench_result.get(label, 0) + 1
                     bench_position_counts[pos_code] += 1
                     bench_total += 1
