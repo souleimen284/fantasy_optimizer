@@ -1,9 +1,7 @@
 services:
   - type: web
     name: fantasy-api
-    runtime: python
-    buildCommand: ./render-build.sh && pip install -r requirements.txt
+    env: python
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
     startCommand: gunicorn app:app
-    envVars:
-      - key: FLASK_ENV
-        value: production
+    pythonVersion: 3.10
