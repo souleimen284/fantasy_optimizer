@@ -2,9 +2,7 @@ services:
   - type: web
     name: fantasy-api
     env: python
-    buildCommand: |
-      apt-get update && apt-get install -y build-essential
-      pip install --upgrade pip setuptools wheel
-      pip install -r requirements.txt
+    buildCommand: python --version && pip install --upgrade pip setuptools wheel && pip install -r requirements.txt
+
     startCommand: gunicorn app:app
     pythonVersion: 3.10
