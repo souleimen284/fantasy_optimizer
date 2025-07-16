@@ -33,11 +33,13 @@ This API uses **Python**, **Flask**, and **cvxpy** to generate the best possible
 
 ---
 
-
-### 🔌 API Usage
 ## 🚀 Deployment
 
 This API is deployed using **[Render](https://render.com)** — a simple cloud platform for hosting web apps.
+
+
+### 🔌 API Usage
+
 
 ## 🌐 Base URL
 
