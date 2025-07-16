@@ -51,6 +51,7 @@ Send your current team (starting + bench) and get optimized player recommendatio
 
 
 **Example request:** 
+```json
 {
   "existing_team": {
     "starting": {
@@ -62,9 +63,10 @@ Send your current team (starting + bench) and get optimized player recommendatio
     }
   }
 }
-
+```
 
 **Example Response:**
+```json
 {
   "starting": {
     "MID 7.0-7.5m": 2,
@@ -77,3 +79,4 @@ Send your current team (starting + bench) and get optimized player recommendatio
     "MID 5.5-6.0m": 1
   }
 }
+```
