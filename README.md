@@ -46,7 +46,7 @@ Check if the API is running.
 }
 ```
 
-###  'POST \'
+### `POST /`
 Send your current team (starting + bench) and get optimized player recommendations.
 
 
