@@ -47,18 +47,18 @@ Check if the API is running.
 ```
 
 ### `POST /`
-Provide your current existing team (a flat list of players by position and price bracket) and get back the full optimized team — including both starting lineup and bench — automatically filled to meet FPL rules and budget constraints.
 
-How it works:
-You send a JSON body with your current player counts by position and price bracket. The API completes your squad with the best possible remaining players, ensuring:
+## 🚀 How It Works
 
-Total squad size of 15 players
+Provide your **current existing team** as a **flat list** of players by **position** and **price bracket**, and get back the **full optimized team** — including both **starting lineup** and **bench** — automatically filled to meet **FPL rules** and **budget constraints**.
 
-Proper formation: 2 GKs, 5 DEFs, 5 MIDs, 3 FWDs
+You send a **JSON body** with your current player counts by position and price bracket. The API completes your squad with the best possible remaining players, ensuring:
 
-Bench has exactly 4 players: 1 GK + up to 3 others (max 2 per position)
+- ⚽ **Total squad size:** 15 players  
+- 📐 **Proper formation:** 2 GKs, 5 DEFs, 5 MIDs, 3 FWDs  
+- 🪑 **Bench size:** exactly 4 players — 1 GK + up to 3 others (max 2 per position)  
+- 💰 **Budget-friendly bench:** bench is filled with the **cheapest eligible players** to maximize your budget for the starters  
 
-The bench is filled with the cheapest eligible players to maximize your budget for the starters
 
 
 
