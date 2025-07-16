@@ -7,6 +7,12 @@ Welcome to the **Fantasy Price Finder API**! This project helps you build the **
 
 ---
 
+## 🤔 Problem Statement
+
+Fantasy Premier League players often struggle to **find the best price ranges** for their squad members. Many spend too much on a few star players, leaving **insufficient budget** to build a balanced team. This results in weaker overall squads and missed points opportunities.
+
+Our API solves this by **optimizing your entire team**, ensuring you get the **best value for your budget** across all positions — balancing star power with affordable players to maximize total points.
+
 ## 🧠 What It Does
 
 This API uses **Python**, **Flask**, and **cvxpy** to generate the best possible team of **15 players** (🧤 Starting XI + 🪑 4 Bench) based on your input.
