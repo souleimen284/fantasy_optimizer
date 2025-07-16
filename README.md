@@ -47,36 +47,48 @@ Check if the API is running.
 ```
 
 ### `POST /`
-Send your current team (starting + bench) and get optimized player recommendations.
+Provide your current existing team (a flat list of players by position and price bracket) and get back the full optimized team — including both starting lineup and bench — automatically filled to meet FPL rules and budget constraints.
+
+How it works:
+You send a JSON body with your current player counts by position and price bracket. The API completes your squad with the best possible remaining players, ensuring:
+
+Total squad size of 15 players
+
+Proper formation: 2 GKs, 5 DEFs, 5 MIDs, 3 FWDs
+
+Bench has exactly 4 players: 1 GK + up to 3 others (max 2 per position)
+
+The bench is filled with the cheapest eligible players to maximize your budget for the starters
+
 
 
 **Example request:** 
 ```json
 {
   "existing_team": {
-    "starting": {
-      "DEF 4.0-4.5m": 2,
-      "FWD 10-10.5m": 2
-    },
-    "bench": {
-      "MID 6.0-6.5m": 1
-    }
+    
+            "DEF 4.0-4.5m": 5,
+            "FWD 10-10.5m": 3
   }
 }
+
 ```
 
 **Example Response:**
 ```json
 {
-  "starting": {
-    "MID 7.0-7.5m": 2,
-    "FWD 6.0-6.5m": 1
-  },
-  "bench": {
-    "DEF 4.5-5.0m": 1,
-    "GK 4.0-4.5m": 1,
-    "DEF 4.0-4.5m": 1,
-    "MID 5.5-6.0m": 1
-  }
+    "bench": {
+        "DEF 4.0-4.5m": 2,
+        "GK 5.5-6.0m": 1,
+        "MID 4.5-5.0m": 1
+    },
+    "starting": {
+        "DEF 4.0-4.5m": 3,
+        "FWD 10-10.5m": 3,
+        "GK 5.5-6.0m": 1,
+        "MID 13.5-14.0m": 1,
+        "MID 4.5-5.0m": 1,
+        "MID 7.5-8.0m": 2
+    }
 }
 ```
