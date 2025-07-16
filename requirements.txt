@@ -1,3 +1,4 @@
+requests
 Flask==3.1.1
 gunicorn
 cvxpy==1.4.1
