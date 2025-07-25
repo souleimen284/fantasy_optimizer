@@ -1,6 +1,6 @@
-# ⚽ Fantasy Premier League Price Finder API
+# ⚽ Fantasy Premier League Price Optimizer API
 
-Welcome to the **Fantasy Price Finder API**! This project helps you build the **optimal FPL (Fantasy Premier League)** team based on your **budget** and **existing squad**, using 🔬 **mathematical optimization**.
+Welcome to the **Fantasy Price Optimizer API**! This project helps you build the **optimal FPL (Fantasy Premier League)** team based on your **budget** and **existing squad**, using 🔬 **mathematical optimization**.
 
 🛰️ **Hosted at:**  
 🔗 [https://fantasy-price-finder-project.onrender.com](https://fantasy-price-finder-project.onrender.com)
