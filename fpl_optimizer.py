@@ -5,12 +5,13 @@ import cvxpy as cp
 from collections import defaultdict
 import json
 
-def fetch_fpl_data():
-    with open("fpl_data.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    players = data['elements']
-    return pd.DataFrame(players)
 
+def fetch_fpl_data():
+    with open("fpl_2025_data.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+        elements = data["elements"]
+    return pd.DataFrame(elements)
+    
 def prepare_player_data(players):
     df = players[['id', 'web_name', 'now_cost', 'total_points', 'element_type']].copy()
     df['price_m'] = df['now_cost'] / 10
@@ -30,6 +31,14 @@ def filter_top_players(df, top_n=20):
 
 def bracket_key(label):
     return float(label.split('-')[0].replace('m', '').strip())
+
+def find_bracket(price):
+    bins = np.arange(4, 15.5, 0.5)
+    for i in range(len(bins) - 1):
+        if bins[i] <= price < bins[i + 1]:
+            return f"{bins[i]}-{bins[i + 1]}m"
+    return f"{bins[-2]}-{bins[-1]}m"
+
 
 def complete_team(df, existing_flat):
     positions = [1, 2, 3, 4]
@@ -155,3 +164,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
