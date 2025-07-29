@@ -1,11 +1,17 @@
-# ⚽ Fantasy Premier League Price Finder API
+# ⚽ Fantasy Premier League Price Optimizer API
 
-Welcome to the **Fantasy Price Finder API**! This project helps you build the **optimal FPL (Fantasy Premier League)** team based on your **budget** and **existing squad**, using 🔬 **mathematical optimization**.
+Welcome to the **Fantasy Price Optimizer API**! This project helps you build the **optimal FPL (Fantasy Premier League)** team based on your **budget** and **existing squad**, using 🔬 **mathematical optimization**.
 
 🛰️ **Hosted at:**  
 🔗 [https://fantasy-price-finder-project.onrender.com](https://fantasy-price-finder-project.onrender.com)
 
 ---
+
+## 🤔 Problem Statement
+
+Fantasy Premier League players often struggle to **find the best price ranges** for their squad members. Many spend too much on a few star players, leaving **insufficient budget** to build a balanced team. This results in weaker overall squads and missed points opportunities.
+
+Our API solves this by **optimizing your entire team**, ensuring you get the **best value for your budget** across all positions — balancing star power with affordable players to maximize total points.
 
 ## 🧠 What It Does
 
@@ -27,14 +33,20 @@ This API uses **Python**, **Flask**, and **cvxpy** to generate the best possible
 
 ---
 
-## 🔌 API Usage
+## 🚀 Deployment
 
-### 🌐 Base URL
+This API is deployed using **[Render](https://render.com)** — a simple cloud platform for hosting web apps.
+
+
+### 🔌 API Usage
+
+
+## 🌐 Base URL
 
 ```text
 https://fantasy-price-finder-project.onrender.com
 ```
-## 📌 Endpoints
+### 📌 Endpoints
 
 ### `GET /`
 Check if the API is running.
@@ -47,36 +59,48 @@ Check if the API is running.
 ```
 
 ### `POST /`
-Send your current team (starting + bench) and get optimized player recommendations.
+
+## 🚀 How It Works
+
+Provide your **current existing team** as a **flat list** of players by **position** and **price bracket**, and get back the **full optimized team** — including both **starting lineup** and **bench** — automatically filled to meet **FPL rules** and **budget constraints**.
+
+You send a **JSON body** with your current player counts by position and price bracket. The API completes your squad with the best possible remaining players, ensuring:
+
+- ⚽ **Total squad size:** 15 players  
+- 📐 **Proper formation:** 2 GKs, 5 DEFs, 5 MIDs, 3 FWDs  
+- 🪑 **Bench size:** exactly 4 players — 1 GK + up to 3 others (max 2 per position)  
+- 💰 **Budget-friendly bench:** bench is filled with the **cheapest eligible players** to maximize your budget for the starters  
+
+
 
 
 **Example request:** 
 ```json
 {
   "existing_team": {
-    "starting": {
-      "DEF 4.0-4.5m": 2,
-      "FWD 10-10.5m": 2
-    },
-    "bench": {
-      "MID 6.0-6.5m": 1
-    }
+    
+            "DEF 4.0-4.5m": 5,
+            "FWD 10-10.5m": 3
   }
 }
+
 ```
 
 **Example Response:**
 ```json
 {
-  "starting": {
-    "MID 7.0-7.5m": 2,
-    "FWD 6.0-6.5m": 1
-  },
-  "bench": {
-    "DEF 4.5-5.0m": 1,
-    "GK 4.0-4.5m": 1,
-    "DEF 4.0-4.5m": 1,
-    "MID 5.5-6.0m": 1
-  }
+    "bench": {
+        "DEF 4.0-4.5m": 2,
+        "GK 5.5-6.0m": 1,
+        "MID 4.5-5.0m": 1
+    },
+    "starting": {
+        "DEF 4.0-4.5m": 3,
+        "FWD 10-10.5m": 3,
+        "GK 5.5-6.0m": 1,
+        "MID 13.5-14.0m": 1,
+        "MID 4.5-5.0m": 1,
+        "MID 7.5-8.0m": 2
+    }
 }
 ```
